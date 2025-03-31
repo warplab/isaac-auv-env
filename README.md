@@ -45,10 +45,13 @@ Additional notes:
 
 To cite:
 ```
-@article{cai2024learning,
-  title={Learning to Swim: Reinforcement Learning for 6-DOF Control of Thruster-driven Autonomous Underwater Vehicles},
-  author={Cai, Levi and Chang, Kevin and Girdhar, Yogesh},
-  journal={arXiv preprint arXiv:2410.00120},
-  year={2024}
+@inproceedings{caiLearningSwimReinforcement2025,
+  title = {Learning to {{Swim}}: {{Reinforcement Learning}} for 6-{{DOF Control}} of {{Thruster-driven Autonomous Underwater Vehicles}}},
+  booktitle = {2025 {{IEEE International Conference}} on {{Robotics}} and {{Automation}} ({{ICRA}})},
+  author = {Cai, Levi and Chang, Kevin and Girdhar, Yogesh},
+  date = {2025},
+  url = {https://arxiv.org/abs/2410.00120},
+  eventtitle = {2025 {{IEEE International Conference}} on {{Robotics}} and {{Automation}} ({{ICRA}})}
 }
+
 ```
