@@ -116,7 +116,7 @@ class WarpAUVEnvCfg(DirectRLEnvCfg):
         # com_to_cob_offset_radius = 0 # uniform from sphere around predicted com_to_cob_offset
         # volume_range = [0.022747843530591776, 0.022747843530591776] # uniform [lowerbound, upperbound]
         # mass_range = [2.2701e+0,2.2701e+0] # uniform [lowerbound, upperbound]
-        com_to_cob_offset_radius = 0.5 # uniform from sphere around predicted com_to_cob_offset
+        com_to_cob_offset_radius = 0.05 # uniform from sphere around predicted com_to_cob_offset
         volume_range = [0.019747843530591773, 0.02574784353059178] # uniform [loierbound, upperbound]
         mass_range = [2.2701e+01,2.2701e+01] # uniform [lowerbound, upperbound]
 
@@ -431,7 +431,7 @@ class WarpAUVEnv(DirectRLEnv):
 
         ## Calculate hydrodynamics
         if self._debug: print("gravity magnitude: ", self._gravity_magnitude) 
-        buoyancy_forces, buoyancy_torques = self.force_calculation_functions.calculate_buoyancy_forces(self._robot.data.root_quat_w, self.cfg.water_rho, self.volumes, abs(self._gravity_magnitude), self.cfg.com_to_cob_offset)
+        buoyancy_forces, buoyancy_torques = self.force_calculation_functions.calculate_buoyancy_forces(self._robot.data.root_quat_w, self.cfg.water_rho, self.volumes, abs(self._gravity_magnitude), self.com_to_cob_offsets)
 
         density_forces, density_torques, viscosity_forces, viscosity_torques = self.force_calculation_functions.calculate_density_and_viscosity_forces(
           self._robot.data.root_quat_w, self._robot.data.root_lin_vel_w, self._robot.data.root_ang_vel_w, self.inertia_tensors, self.inertia_tensors_mean, self.cfg.water_beta, self.cfg.water_rho, self.masses
