@@ -17,12 +17,12 @@ To install, requires IsaacSim v4.0.0 and IsaacLab v1.0.0:
   - If using docker container:
   ```
   cd <IsaacLab_Path>/source/extensions/omni.isaac.lab_tasks/omni/isaac/lab_tasks/direct/isaac-warpauv-env
-  git clone git@gitlab.com:warplab/isaac-warpauv-env.git
+  git clone https://github.com/warplab/isaac-auv-env.git
   ```
 
   - If using workstation install:
   ```
-  git clone git@gitlab.com:warplab/isaac-warpauv-env.git
+  git clone https://github.com/warplab/isaac-auv-env.git
   ln -s isaac-warpauv-env <IsaacLab_Path>/source/extensions/omni.isaac.lab_tasks/omni/isaac/lab_tasks/direct/isaac-warpauv-env
   ```
   (Note: if using a workstation install, you can follow the docker instructions as well, but the soft link seems cleaner for local development. Docker is painful when working with links)
