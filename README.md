@@ -6,10 +6,19 @@ Links: [arxiv paper](https://arxiv.org/abs/2410.00120)
 
 To install, requires IsaacSim v4.0.0 and IsaacLab v1.0.0:
 - Install IsaacSim v4.0.0 (https://docs.isaacsim.omniverse.nvidia.com/latest/installation/download.html)
-  - Tested with the _isaac_sim->isaacsim4.0.0 unzipped download archived binaries
+  - Download and unzip the archived binaries into a new folder (i.e. "IsaacSim")
+  - Soft link Isaac lab and Isaac sim 
+    ```
+    cd <IsaacLab_Path> 
+    ln -s <IsaacSim_Path> _isaac_sim
+    ```
+   
 - Install IsaacLab v1.0.0 (https://isaac-sim.github.io/IsaacLab/v1.0.0/source/setup/installation/index.html)
-  - Tested by cloning and using tag v1.0.0 (https://github.com/isaac-sim/IsaacLab/tree/v1.0.0)
-- Requires patch (https://github.com/isaac-sim/IsaacLab/pull/1808/files/8af43cb048cdaa976c24a0f2b569ea9e45db533d)
+  ```
+  git clone --branch v1.0.0 https://github.com/isaac-sim/IsaacLab.git
+  ```
+
+- Add Required patch (https://github.com/isaac-sim/IsaacLab/pull/1808/files/8af43cb048cdaa976c24a0f2b569ea9e45db533d)
   - For v1.0.0 IsaacLab, patch needs to be applied to <IsaacLab_Path>/source/extensions/omni.isaac.lab_tasks/setup.py before running install script
 
 - Clone this repository:
@@ -23,11 +32,19 @@ To install, requires IsaacSim v4.0.0 and IsaacLab v1.0.0:
   - If using workstation install:
   ```
   git clone https://github.com/warplab/isaac-auv-env.git
-  ln -s isaac-warpauv-env <IsaacLab_Path>/source/extensions/omni.isaac.lab_tasks/omni/isaac/lab_tasks/direct/isaac-warpauv-env
+  cd <IsaacLab_Path>/source/extensions/omni.isaac.lab_tasks/omni/isaac/lab_tasks/direct/
+  ln -s <isaac-auv-env_Path> isaac-auv-env
   ```
   (Note: if using a workstation install, you can follow the docker instructions as well, but the soft link seems cleaner for local development. Docker is painful when working with links)
+  
+- Update pip and Install with:
+  ```
+  <IsaacSim_Path>/kit/python/bin/python3 -m pip install --upgrade pip
+  ./isaaclab.sh -i
+  ```
+ 
 
-To run:
+To run training:
 ```
 ./isaaclab.sh -p source/standalone/workflows/rsl_rl/train.py --task Isaac-WarpAUV-Direct-v1 --num_envs 2048
 ```
