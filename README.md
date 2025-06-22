@@ -1,4 +1,4 @@
-Code for Learning to Swim: Reinforcement Learning for 6-DOF Control of Thruster-driven Autonomous Underwater Vehicles.
+# Learning to Swim: Reinforcement Learning for 6-DOF Control of Thruster-driven Autonomous Underwater Vehicles
 
 ![Overview](./imgs/qual-overview.png)
 
