@@ -5,7 +5,7 @@ Author: Ethan Fahnestock
 """
 # based on https://github.com/uuvsimulator/uuv_simulator/blob/master/uuv_gazebo_plugins/uuv_gazebo_plugins/src/Dynamics.cc
 
-from omni.isaac.lab.utils.math import quat_from_euler_xyz
+from isaaclab.utils.math import quat_from_euler_xyz
 from dataclasses import dataclass
 from abc import ABC, abstractmethod
 import numpy as np 

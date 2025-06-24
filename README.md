@@ -19,20 +19,20 @@ To install, requires IsaacSim v4.0.0 and IsaacLab v1.0.0:
   ```
 
 - Add Required patch (https://github.com/isaac-sim/IsaacLab/pull/1808/files/8af43cb048cdaa976c24a0f2b569ea9e45db533d)
-  - For v1.0.0 IsaacLab, patch needs to be applied to <IsaacLab_Path>/source/extensions/omni.isaac.lab_tasks/setup.py before running install script
+  - For v1.0.0 IsaacLab, patch needs to be applied to <IsaacLab_Path>/source/isaaclab_tasks/setup.py before running install script
 
 - Clone this repository:
 
   - If using docker container:
   ```
-  cd <IsaacLab_Path>/source/extensions/omni.isaac.lab_tasks/omni/isaac/lab_tasks/direct/isaac-warpauv-env
+  cd <IsaacLab_Path>/source/isaaclab_tasks/isaaclab_tasks/direct/isaac-warpauv-env
   git clone https://github.com/warplab/isaac-auv-env.git
   ```
 
   - If using workstation install:
   ```
   git clone https://github.com/warplab/isaac-auv-env.git
-  cd <IsaacLab_Path>/source/extensions/omni.isaac.lab_tasks/omni/isaac/lab_tasks/direct/
+  cd <IsaacLab_Path>/source/isaaclab_tasks/isaaclab_tasks/direct/
   ln -s <isaac-auv-env_Path> isaac-auv-env
   ```
   (Note: if using a workstation install, you can follow the docker instructions as well, but the soft link seems cleaner for local development. Docker is painful when working with links)
@@ -46,7 +46,7 @@ To install, requires IsaacSim v4.0.0 and IsaacLab v1.0.0:
 
 To run training:
 ```
-./isaaclab.sh -p source/standalone/workflows/rsl_rl/train.py --task Isaac-WarpAUV-Direct-v1 --num_envs 2048
+./isaaclab.sh -p scripts/workflows/rsl_rl/train.py --task Isaac-WarpAUV-Direct-v1 --num_envs 2048
 ```
 
 Additional notes:
@@ -55,7 +55,7 @@ Additional notes:
 
  ```
  rosrun xacro xacro --inorder -o <output.urdf> <input.xacro>
- ./isaaclab.sh -p source/standalone/tools/convert_urdf.py  <input_urdf> <output_usd> --merge-joints --make-instance
+ ./isaaclab.sh -p scripts/tools/convert_urdf.py  <input_urdf> <output_usd> --merge-joints --make-instance
  ```
 
  - Generally converges in about 400 iterations with 2048 environments and achieves mean total reward ~95-100. Lowering action penalty often helps if there are issues with convergence.
