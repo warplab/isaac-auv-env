@@ -25,6 +25,8 @@ from isaaclab.utils.math import sample_uniform, normalize
 from isaaclab.markers import CUBOID_MARKER_CFG, VisualizationMarkers, RED_ARROW_X_MARKER_CFG, GREEN_ARROW_X_MARKER_CFG, BLUE_ARROW_X_MARKER_CFG
 from isaaclab.utils.math import quat_apply, quat_conjugate, quat_from_angle_axis, quat_mul
 import isaaclab.utils.math as math_utils
+import gymnasium as gym
+import numpy as np
 
 ##
 # Hydrodynamic model
@@ -65,6 +67,9 @@ class WarpAUVEnvCfg(DirectRLEnvCfg):
     scene: InteractiveSceneCfg = InteractiveSceneCfg(num_envs=4, env_spacing=4.0, replicate_physics=True)
     debug_vis = True
 
+    observation_space: gym.spaces.Space = gym.spaces.Box(low=-np.inf, high=np.inf, shape=(17,), dtype=np.float64)
+    action_space: gym.spaces.Space = gym.spaces.Box(low=-1.0, high=1.0, shape=(6,), dtype=np.float64)
+    state_space: gym.spaces.Space = gym.spaces.Box(low=-np.inf, high=np.inf, shape=(17,), dtype=np.float64)
     # env
     decimation = 2
     cap_episode_length = True
@@ -193,6 +198,7 @@ class WarpAUVEnv(DirectRLEnv):
         
         # Set initial goals
         self._reset_idx(self._robot._ALL_INDICES)
+
 
     def _init_thruster_dynamics(self):
         if type(self.cfg.com_to_cob_offset) != torch.Tensor:
