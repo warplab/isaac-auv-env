@@ -42,9 +42,6 @@ Verify the installation worked!
 # Option 1: Using the isaaclab.sh executable
 # note: this works for both the bundled python and the virtual environment
 ./isaaclab.sh -p scripts/tutorials/00_sim/create_empty.py
-
-# Option 2: Using python in your virtual environment
-python scripts/tutorials/00_sim/create_empty.py
 ```
 
 - Clone this repository:
