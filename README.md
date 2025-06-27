@@ -62,7 +62,7 @@ Verify the installation worked!
 
 To run training:
 ```
-./isaaclab.sh -p scripts/workflows/rsl_rl/train.py --task Isaac-WarpAUV-Direct-v1 --num_envs 2048
+./isaaclab.sh -p scripts/reinforcement_learning/rsl_rl/train.py --task Isaac-WarpAUV-Direct-v1 --num_envs 2048
 ```
 
 Additional notes:
