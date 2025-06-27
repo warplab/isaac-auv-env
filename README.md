@@ -56,7 +56,7 @@ Verify the installation worked!
   ```
   git clone https://github.com/SRoche14/roche-isaac-auv-env.git
   cd <IsaacLab_Path>/source/isaaclab_tasks/isaaclab_tasks/direct/
-  ln -s <isaac-auv-env_Path> roche-isaac-auv-env
+  ln -s <roche-isaac-auv-env_Path> roche-isaac-auv-env
   ```
   (Note: if using a workstation install, you can follow the docker instructions as well, but the soft link seems cleaner for local development. Docker is painful when working with links)
 
