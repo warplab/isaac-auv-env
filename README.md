@@ -49,14 +49,14 @@ Verify the installation worked!
   - If using docker container:
   ```
   cd <IsaacLab_Path>/source/isaaclab_tasks/isaaclab_tasks/direct/isaac-warpauv-env
-  https://github.com/SRoche14/roche-isaac-auv-env.git
+  git clone https://github.com/warplab/isaac-auv-env.git
   ```
 
   - If using workstation install:
   ```
-  git clone https://github.com/SRoche14/roche-isaac-auv-env.git
+  git clone https://github.com/warplab/isaac-auv-env.git
   cd <IsaacLab_Path>/source/isaaclab_tasks/isaaclab_tasks/direct/
-  ln -s <isaac-auv-env_Path> roche-isaac-auv-env
+  ln -s <isaac-auv-env_Path> isaac-auv-env
   ```
   (Note: if using a workstation install, you can follow the docker instructions as well, but the soft link seems cleaner for local development. Docker is painful when working with links)
 
