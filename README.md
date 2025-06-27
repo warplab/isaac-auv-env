@@ -54,7 +54,7 @@ Verify the installation worked!
 
   - If using workstation install:
   ```
-  https://github.com/SRoche14/roche-isaac-auv-env.git
+  git clone https://github.com/SRoche14/roche-isaac-auv-env.git
   cd <IsaacLab_Path>/source/isaaclab_tasks/isaaclab_tasks/direct/
   ln -s <isaac-auv-env_Path> roche-isaac-auv-env
   ```
