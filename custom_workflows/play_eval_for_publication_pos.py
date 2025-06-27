@@ -1,7 +1,7 @@
 import pdb
 import argparse
 
-from omni.isaac.lab.app import AppLauncher
+from isaaclab.app import AppLauncher
 
 # local imports
 import cli_args  # isort: skip
@@ -47,15 +47,15 @@ import math
 
 from rsl_rl.runners import OnPolicyRunner
 
-import omni.isaac.lab_tasks  # noqa: F401
-from omni.isaac.lab_tasks.utils import get_checkpoint_path, parse_env_cfg
-from omni.isaac.lab_tasks.utils.wrappers.rsl_rl import (
+import isaaclab_tasks  # noqa: F401
+from isaaclab_tasks.utils import get_checkpoint_path, parse_env_cfg
+from isaaclab_rl.rsl_rl import (
     RslRlOnPolicyRunnerCfg,
     RslRlVecEnvWrapper,
     export_policy_as_jit,
     export_policy_as_onnx,
 )
-from omni.isaac.lab.utils.math import quat_from_angle_axis, quat_error_magnitude, euler_xyz_from_quat, quat_apply, quat_from_euler_xyz, quat_conjugate
+from isaaclab.utils.math import quat_from_angle_axis, quat_error_magnitude, euler_xyz_from_quat, quat_apply, quat_from_euler_xyz, quat_conjugate
 
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
