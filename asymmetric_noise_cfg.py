@@ -3,8 +3,8 @@ import torch
 from dataclasses import MISSING
 from collections.abc import Sequence
 
-from omni.isaac.lab.utils import configclass
-from omni.isaac.lab.utils.noise import GaussianNoiseCfg, NoiseModelWithAdditiveBiasCfg, NoiseModel, NoiseModelCfg, NoiseModelWithAdditiveBias, NoiseCfg, gaussian_noise
+from isaaclab.utils import configclass
+from isaaclab.utils.noise import GaussianNoiseCfg, NoiseModelWithAdditiveBiasCfg, NoiseModel, NoiseModelCfg, NoiseModelWithAdditiveBias, NoiseCfg, gaussian_noise
 
 class AsymmetricNoiseModelWithAdditiveBias(NoiseModel):
     """Noise model with an additive bias.

@@ -13,23 +13,25 @@ from collections.abc import Sequence
 
 from .assets.warpauv import WARPAUV_CFG
 
-import omni.isaac.lab.sim as sim_utils
-from omni.isaac.lab.assets import RigidObject, RigidObjectCfg
-from omni.isaac.lab.envs import DirectRLEnv, DirectRLEnvCfg
-from omni.isaac.lab.scene import InteractiveSceneCfg
-from omni.isaac.lab.envs.ui import BaseEnvWindow
-from omni.isaac.lab.sim import SimulationCfg
-from omni.isaac.lab.sim.spawners.from_files import GroundPlaneCfg, spawn_ground_plane
-from omni.isaac.lab.utils import configclass
-from omni.isaac.lab.utils.math import sample_uniform, normalize
-from omni.isaac.lab.markers import CUBOID_MARKER_CFG, VisualizationMarkers, RED_ARROW_X_MARKER_CFG, GREEN_ARROW_X_MARKER_CFG, BLUE_ARROW_X_MARKER_CFG
-from omni.isaac.lab.utils.math import quat_apply, quat_conjugate, quat_from_angle_axis, quat_mul
-import omni.isaac.lab.utils.math as math_utils
+import isaaclab.sim as sim_utils
+from isaaclab.assets import RigidObject, RigidObjectCfg
+from isaaclab.envs import DirectRLEnv, DirectRLEnvCfg
+from isaaclab.scene import InteractiveSceneCfg
+from isaaclab.envs.ui import BaseEnvWindow
+from isaaclab.sim import SimulationCfg
+from isaaclab.sim.spawners.from_files import GroundPlaneCfg, spawn_ground_plane
+from isaaclab.utils import configclass
+from isaaclab.utils.math import sample_uniform, normalize
+from isaaclab.markers import CUBOID_MARKER_CFG, VisualizationMarkers, RED_ARROW_X_MARKER_CFG, GREEN_ARROW_X_MARKER_CFG, BLUE_ARROW_X_MARKER_CFG
+from isaaclab.utils.math import quat_apply, quat_conjugate, quat_from_angle_axis, quat_mul
+import isaaclab.utils.math as math_utils
+import gymnasium as gym
+import numpy as np
 
 ##
 # Hydrodynamic model
 ##
-from omni.isaac.lab.utils.math import quat_apply, quat_conjugate
+from isaaclab.utils.math import quat_apply, quat_conjugate
 from .rigid_body_hydrodynamics import HydrodynamicForceModels
 from .thruster_dynamics import DynamicsFirstOrder, ConversionFunctionBasic, get_thruster_com_and_orientations
 
@@ -65,6 +67,9 @@ class WarpAUVEnvCfg(DirectRLEnvCfg):
     scene: InteractiveSceneCfg = InteractiveSceneCfg(num_envs=4, env_spacing=4.0, replicate_physics=True)
     debug_vis = True
 
+    observation_space: gym.spaces.Space = gym.spaces.Box(low=-np.inf, high=np.inf, shape=(17,), dtype=np.float64)
+    action_space: gym.spaces.Space = gym.spaces.Box(low=-1.0, high=1.0, shape=(6,), dtype=np.float64)
+    state_space: gym.spaces.Space = gym.spaces.Box(low=-np.inf, high=np.inf, shape=(17,), dtype=np.float64)
     # env
     decimation = 2
     cap_episode_length = True
@@ -193,6 +198,7 @@ class WarpAUVEnv(DirectRLEnv):
         
         # Set initial goals
         self._reset_idx(self._robot._ALL_INDICES)
+
 
     def _init_thruster_dynamics(self):
         if type(self.cfg.com_to_cob_offset) != torch.Tensor:

@@ -18,7 +18,7 @@ from .warpauv_env import WarpAUVEnv, WarpAUVEnvCfg
 
 gym.register(
     id="Isaac-WarpAUV-Direct-v1",
-    entry_point="omni.isaac.lab_tasks.direct.isaac-auv-env:WarpAUVEnv",
+    entry_point="isaaclab_tasks.direct.isaac-auv-env:WarpAUVEnv",
     disable_env_checker=True,
     kwargs={
         "env_cfg_entry_point": WarpAUVEnvCfg,
