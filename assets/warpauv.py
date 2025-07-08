@@ -1,6 +1,6 @@
-import omni.isaac.lab.sim as sim_utils
+import isaaclab.sim as sim_utils
 
-from omni.isaac.lab.assets import RigidObjectCfg
+from isaaclab.assets import RigidObjectCfg
 
 import os
 USD_PATH = os.path.join(os.path.dirname(__file__), "../data/warpauv/warpauv.usd")
@@ -14,6 +14,10 @@ WARPAUV_CFG = RigidObjectCfg(
             max_depenetration_velocity=10.0,
             enable_gyroscopic_forces=True,
         ),
+        articulation_props=sim_utils.ArticulationRootPropertiesCfg(
+            articulation_enabled=False,
+        ),
+
         copy_from_source=False,
     ),
     init_state=RigidObjectCfg.InitialStateCfg(
