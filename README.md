@@ -9,12 +9,13 @@ Links: [arxiv paper](https://arxiv.org/abs/2410.00120)
 conda deactivate
 ```
 
-To install, requires IsaacSim v4.5.0 and IsaacLab v2.0.0:
+To install, requires IsaacSim v4.5.0 and IsaacLab v2.2.0:
 - Install IsaacSim v4.5.0 (https://docs.isaacsim.omniverse.nvidia.com/4.5.0/installation/download.html)
   - Download and unzip the archived binaries into a new folder (i.e. "IsaacSim")
 
 Before installing Isaac Lab, check your operating system version (https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/index.html)
-- Install IsaacLab v2.0.0, for Ubuntu 20.04 (https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/binaries_installation.html#installing-isaac-lab)
+- Install IsaacLab v2.2.0, for Ubuntu 20.04 (https://isaac-sim.github.io/IsaacLab/main/source/setup/installation/binaries_installation.html#installing-isaac-lab)
+- This installation README has been validated for commit 0d520b2. 
   ```
   git clone https://github.com/isaac-sim/IsaacLab.git
   ```
